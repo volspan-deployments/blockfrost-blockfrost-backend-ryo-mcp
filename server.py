@@ -27,6 +27,7 @@ def get_headers() -> dict:
 @mcp.tool()
 async def get_account_info(stake_address: str) -> dict:
     """Retrieve general information about a Cardano stake account by its stake address. Use this to get an overview of an account including its controlled amount, rewards, withdrawals, and pool delegation status."""
+    _track("get_account_info")
     url = f"{BASE_URL}/accounts/{stake_address}"
     async with httpx.AsyncClient() as client:
         response = await client.get(url, headers=get_headers())
@@ -36,6 +37,7 @@ async def get_account_info(stake_address: str) -> dict:
 
 @mcp.tool()
 async def get_account_rewards(
+    _track("get_account_rewards")
     stake_address: str,
     count: Optional[int] = 100,
     page: Optional[int] = 1,
@@ -52,6 +54,7 @@ async def get_account_rewards(
 
 @mcp.tool()
 async def get_account_history(
+    _track("get_account_history")
     stake_address: str,
     count: Optional[int] = 100,
     page: Optional[int] = 1,
@@ -68,6 +71,7 @@ async def get_account_history(
 
 @mcp.tool()
 async def get_account_delegations(
+    _track("get_account_delegations")
     stake_address: str,
     count: Optional[int] = 100,
     page: Optional[int] = 1,
@@ -84,6 +88,7 @@ async def get_account_delegations(
 
 @mcp.tool()
 async def get_account_addresses(
+    _track("get_account_addresses")
     stake_address: str,
     count: Optional[int] = 100,
     page: Optional[int] = 1,
@@ -100,6 +105,7 @@ async def get_account_addresses(
 
 @mcp.tool()
 async def get_account_address_assets(
+    _track("get_account_address_assets")
     stake_address: str,
     count: Optional[int] = 100,
     page: Optional[int] = 1,
@@ -116,6 +122,7 @@ async def get_account_address_assets(
 
 @mcp.tool()
 async def get_account_transactions(
+    _track("get_account_transactions")
     stake_address: str,
     count: Optional[int] = 100,
     page: Optional[int] = 1,
@@ -138,6 +145,7 @@ async def get_account_transactions(
 
 @mcp.tool()
 async def get_account_registrations(
+    _track("get_account_registrations")
     stake_address: str,
     count: Optional[int] = 100,
     page: Optional[int] = 1,
